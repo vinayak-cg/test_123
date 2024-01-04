@@ -10,3 +10,4 @@ input:
 output:
   culture:
   - en-US
+  as: Summary
