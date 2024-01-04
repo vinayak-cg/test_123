@@ -24,5 +24,3 @@ jobs:
         inputType: repository
         source: '.ps-rule/'
         Baseline: 'Azure.GA_2023_12'
-        outputFormat: Csv
-        outputPath: reports/ps-rule-results.csv
