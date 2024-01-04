@@ -1,7 +1,7 @@
 @description('3 digit agenct code')
 @minLength(3)
 @maxLength(3)
-param agencyCode string
+param agencyCode string = 'h58'
 
 @description('single digit environment code like p-production, t-test, d-development etc')
 @allowed([
@@ -9,13 +9,13 @@ param agencyCode string
   't'
   'd'
 ])
-param envCode string
+param envCode string = 'd'
 
 @description('Optional. Location for all resources.')
 param location string = resourceGroup().location
 
 @description('Application name to b eused in the cloud services name')
-param applicationName string
+param applicationName string = 'bicepdev'
 
 @description('sequence number to postfix to the cloud service name')
 param instanceNum string = '001'
