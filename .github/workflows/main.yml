@@ -6,6 +6,8 @@ on:
   pull_request:
     branches:
     - main
+env:
+  PSRULE_AZURE_BICEP_PATH: '/usr/local/bin/bicep'
 jobs:
   analyze_arm:
     name: Analyze templates
@@ -17,7 +19,6 @@ jobs:
     # Analyze Azure resources using PSRule for Azure
     - name: Analyze Azure template files
       uses: microsoft/ps-rule@v2.9.0
-      continue-on-error: true
       with:
         modules: 'PSRule.Rules.Azure,PSRule.Monitor'
         outputFormat: Csv
