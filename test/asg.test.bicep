@@ -29,7 +29,7 @@ param SQLMINSGName string
 @description('tags to add for the cloud services')
 param tags object = {}
 
-module appVMFEASG '../AdditionalModules/asg.bicep' = {
+module appVMFEASG '../modules/asg.bicep' = {
   name: '${agencyCode}${envCode}-${applicationName}-WinVMFE-asg-${instanceNum}'
   params: {
     agencyCode: agencyCode
