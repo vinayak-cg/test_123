@@ -1,0 +1,38 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+      "agencyCode": {
+        "value": "h58"
+      },
+      "envCode": {
+        "value": "d"
+      },
+      "applicationName": {
+        "value": "bicepDev"
+      },
+
+      "instanceNum": {
+        "value": "001"
+      },
+
+      "appVMNSGName": {
+        "value": "APPVM1-nsg"
+      },
+
+      "SQLMINSGName": {
+        "value": "SQLMI-nsg"
+      },
+
+      "tags": {
+        "value": {
+          "ApplicationName": "Bicep Development",
+          "ChargeCode": "037485",
+          "DataProtectionCategorization": "Low",
+          "DataProtectionCategoryHigh": "FERPA",
+          "AppPriority": "P3",
+          "environment": "development"
+        }
+      }
+    }
+  }
