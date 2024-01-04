@@ -2,4 +2,8 @@ configuration:
   # Enable automatic expansion of Azure parameter files
   AZURE_PARAMETER_FILE_EXPANSION: true
   AZURE_BICEP_FILE_EXPANSION: true
-
+input:
+  pathIgnore:
+  - '**/.github/*'
+  - '**/*.yaml'
+  - '**/.vscode/'
