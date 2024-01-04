@@ -7,6 +7,8 @@ input:
   - '**/.github/*'
   - '**/*.yaml'
   - '**/modules/*'
+logging:
+  ruleFail: Warning
 output:
   culture:
   - en-US
