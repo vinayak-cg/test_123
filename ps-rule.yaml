@@ -6,4 +6,4 @@ input:
   pathIgnore:
   - '**/.github/*'
   - '**/*.yaml'
-  - '**/.vscode/'
+  - '**/modules/*'
