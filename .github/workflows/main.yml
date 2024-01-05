@@ -1,3 +1,7 @@
+#https://github.com/microsoft/PSRule/blob/main/docs/concepts/PSRule/en-US/about_PSRule_Options.md#loggingrulefail
+#https://github.com/Azure/PSRule.Rules.Azure/discussions/854
+
+
 name: Analyze templates
 on:
   push:
