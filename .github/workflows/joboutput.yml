@@ -47,7 +47,7 @@ jobs:
       uses: azure/CLI@v1.0.7
       with:
         inlineScript: |
-          echo "test=$(echo "hello")" >> $GITHUB_OUTPUT
+          echo "$ {{ steps.step0.outputs.test }}"
     - id: step2
       uses: azure/CLI@v1.0.7
       with:
