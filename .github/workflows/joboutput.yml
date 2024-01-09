@@ -35,7 +35,7 @@ jobs:
       with:
         inlineScript: |
           test=$(az group show --name testRG --output json)
-          echo "test==$test" >> $GITHUB_ENV
+          echo "test=$test" >> $GITHUB_ENV
           #echo "test=$test" >> $GITHUB_OUTPUT
           
     - id: step1
