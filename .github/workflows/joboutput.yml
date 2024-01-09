@@ -34,7 +34,7 @@ jobs:
       uses: azure/CLI@v1.0.7
       with:
         inlineScript: |
-          test=$(az group show --name testRG --output json|jq c)
+          test=$(toJSON(az group show --name testRG --output json))
           echo "$test"
           echo "::set-output name=test::$test"
           #echo "test=$test" >> $GITHUB_ENV
