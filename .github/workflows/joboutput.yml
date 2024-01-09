@@ -34,7 +34,7 @@ jobs:
       uses: azure/CLI@v1.0.7
       with:
         inlineScript: |
-          GITHUB_OUTPUT=$(az group create -l westus -n testRG)
+          GITHUB_OUTPUT=$(az group show --name testRG)
           echo "::set-output name=test::$GITHUB_OUTPUT"
           
     - id: step1
