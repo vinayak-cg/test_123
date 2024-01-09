@@ -36,6 +36,7 @@ jobs:
         inlineScript: |
           test=$(az group show --name testRG --output json)
           echo "$test"
+          echo "::set-output name=test::$test"
           #echo "test=$test" >> $GITHUB_ENV
           #echo "test=$test" >> $GITHUB_OUTPUT
           
