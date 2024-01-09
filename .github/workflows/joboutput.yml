@@ -28,7 +28,7 @@ jobs:
       uses: azure/CLI@v1.0.7
       with:
         inlineScript: |
-          export test="$(az group show --name testRG)"
+          test="$(az group show --name testRG)"
           test="${CHANGELOG//'%'/'%25'}"
           test="${CHANGELOG//$'\n'/'%0A'}"
           test="${CHANGELOG//$'\r'/'%0D'}"
@@ -38,8 +38,8 @@ jobs:
           #test=$(az group show --name testRG)
           echo "$test"
           #echo "::set-output name=test::$test"
-          #echo "test=$test" >> $GITHUB_ENV
-          echo "test=$test" >> $GITHUB_OUTPUT
+          echo "test=$test" >> $GITHUB_ENV
+          #echo "test=$test" >> $GITHUB_OUTPUT
           
     - id: step1
       uses: azure/CLI@v1.0.7
@@ -55,4 +55,4 @@ jobs:
     runs-on: ubuntu-latest
     needs: job1
     steps:
-    - run: echo ${{needs.job1.outputs.output1}}
+    - run: echo ${{env.test}}
