@@ -24,13 +24,13 @@ jobs:
       uses: azure/CLI@v1.0.7
       with:
         inlineScript: |
-          GITHUB_OUTPUT=$(echo "test=hello")
+          GITHUB_OUTPUT=$(echo "hello")
           echo "::set-output name=test::$GITHUB_OUTPUT"
     - id: step2
       uses: azure/CLI@v1.0.7
       with:
         inlinescript: |
-          GITHUB_OUTPUT=$(echo "test=world")
+          GITHUB_OUTPUT=$(echo "world")
           echo "::set-output name=test::$GITHUB_OUTPUT"
   job2:
     runs-on: ubuntu-latest
