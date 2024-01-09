@@ -34,10 +34,13 @@ jobs:
       uses: azure/CLI@v1.0.7
       with:
         inlineScript: |
-          test=$(az group show --name testRG)
-          echo "$test"
+          echo "test<<EOF" >> $GITHUB_OUTPUT
+          echo "$(az group show --name testRG)" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+          #test=$(az group show --name testRG)
+          #echo "$test"
           #echo "::set-output name=test::$test"
-          echo "test=$test" >> $GITHUB_ENV
+          #echo "test=$test" >> $GITHUB_ENV
           #echo "test=$test" >> $GITHUB_OUTPUT
           
     - id: step1
