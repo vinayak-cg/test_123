@@ -36,7 +36,7 @@ jobs:
           #echo "$(az group show --name testRG)" >> $GITHUB_OUTPUT
           #echo "EOF" >> $GITHUB_OUTPUT
           #test=$(az group show --name testRG)
-          #echo "$test"
+          echo "$test"
           #echo "::set-output name=test::$test"
           #echo "test=$test" >> $GITHUB_ENV
           echo "test=$test" >> $GITHUB_OUTPUT
