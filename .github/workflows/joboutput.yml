@@ -20,6 +20,16 @@ jobs:
       output1: ${{ steps.step1.outputs.test }}
       output2: ${{ steps.step2.outputs.test }}
     steps:
+    - name: Azure Login
+      uses: azure/login@v1
+      with:
+        #old version from July 2023 - didn't work
+        #creds: '{"clientId":"${{ secrets.CLIENT_ID }}","clientSecret":"${{ secrets.PWD }}","subscriptionId":"${{ secrets.SUBSCRIPTION_ID }}","tenantId":"${{ secrets.TENANT_ID }}"}'
+        creds: '{"clientId":"${{ secrets.CLIENT_ID }}","clientSecret":"${{ secrets.PWD }}","subscriptionId":"${{ secrets.SUBSCRIPTION_ID }}","tenantId":"${{ secrets.TENANT_ID }}"}'
+
+    - name: Checkout
+      uses: actions/checkout@v3
+      
     - id: step1
       uses: azure/CLI@v1.0.7
       with:
