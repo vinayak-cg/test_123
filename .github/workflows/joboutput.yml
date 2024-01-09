@@ -21,10 +21,12 @@ jobs:
       output2: ${{ steps.step2.outputs.test }}
     steps:
     - id: step1
+      uses: azure/CLI@v1.0.7
       with:
         inlineScript: |
           echo "test=hello" >> $GITHUB_OUTPUT
     - id: step2
+      uses: azure/CLI@v1.0.7
       with:
         inlinescript: |
           echo "test=world" >> $GITHUB_OUTPUT
