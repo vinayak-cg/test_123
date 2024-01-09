@@ -34,7 +34,8 @@ jobs:
       uses: azure/CLI@v1.0.7
       with:
         inlineScript: |
-          echo "test=$(az group show --name testRG --output json)" >> $GITHUB_OUTPUT
+          test = az group show --name testRG --output json
+          echo "test=$test" >> $GITHUB_OUTPUT
           
     - id: step1
       uses: azure/CLI@v1.0.7
