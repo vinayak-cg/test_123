@@ -34,7 +34,7 @@ jobs:
       uses: azure/CLI@v1.0.7
       with:
         inlineScript: |
-          GITHUB_OUTPUT=$(az group show --name "MNIT-AzureMigate")
+          GITHUB_OUTPUT=$(az group list)
           echo "::set-output name=test::$GITHUB_OUTPUT"
           
     - id: step1
