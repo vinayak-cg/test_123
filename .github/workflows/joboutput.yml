@@ -35,22 +35,22 @@ jobs:
       with:
         inlineScript: |
           test=$(az group show --name testRG)
-          echo "test=test" >> $GITHUB_OUTPUT
+          echo "test=$test" >> $GITHUB_OUTPUT
           
     - id: step1
       uses: azure/CLI@v1.0.7
       with:
         inlineScript: |
           test=$(echo "hello")
-          echo "test=test" >> $GITHUB_OUTPUT
+          echo "test=$test" >> $GITHUB_OUTPUT
     - id: step2
       uses: azure/CLI@v1.0.7
       with:
         inlinescript: |
           test=$(echo "world")
-          echo "test=test" >> $GITHUB_OUTPUT
+          echo "test=$test" >> $GITHUB_OUTPUT
   job2:
     runs-on: ubuntu-latest
     needs: job1
     steps:
-    - run: echo ${{needs.job1.outputs.output1}}
+    - run: echo ${{needs.job1.outputs.output1.location}}
