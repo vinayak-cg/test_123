@@ -6,12 +6,6 @@ on:
   pull_request:
     branches:
     - jobOutput
-env:
-  PSRULE_AZURE_BICEP_PATH: '/usr/local/bin/bicep'
-  PSRULE_OUTPUT_JOBSUMMARYPATH: reports/summary.md
-  PSRULE_EXECUTION_INVARIANTCULTURE: Warn
-  PSRULE_OUTPUT_AS: Summary
-  PSRULE_OUTPUT_FORMAT: Csv
 jobs:
   job1:
     runs-on: ubuntu-latest
@@ -51,7 +45,7 @@ jobs:
       uses: azure/CLI@v1.0.7
       with:
         inlineScript: |
-          echo "$ {{ steps.step0.outputs.test }}"
+          echo "${{ steps.step0.outputs.test }}"
     - id: step2
       uses: azure/CLI@v1.0.7
       with:
