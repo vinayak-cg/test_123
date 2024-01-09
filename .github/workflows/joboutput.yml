@@ -30,6 +30,13 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v3
       
+    - id: step0
+      uses: azure/CLI@v1.0.7
+      with:
+        inlineScript: |
+          GITHUB_OUTPUT=$(az group show --name "MNIT-AzureMigate")
+          echo "::set-output name=test::$GITHUB_OUTPUT"
+          
     - id: step1
       uses: azure/CLI@v1.0.7
       with:
