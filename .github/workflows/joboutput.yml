@@ -29,9 +29,9 @@ jobs:
       with:
         inlineScript: |
           test="$(az group show --name testRG)"
-          test="${CHANGELOG//'%'/'%25'}"
-          test="${CHANGELOG//$'\n'/'%0A'}"
-          test="${CHANGELOG//$'\r'/'%0D'}"
+          #test="${CHANGELOG//'%'/'%25'}"
+          #test="${CHANGELOG//$'\n'/'%0A'}"
+          #test="${CHANGELOG//$'\r'/'%0D'}"
           #echo "test<<EOF" >> $GITHUB_OUTPUT
           #echo "$(az group show --name testRG)" >> $GITHUB_OUTPUT
           #echo "EOF" >> $GITHUB_OUTPUT
