@@ -28,16 +28,20 @@ jobs:
       uses: azure/CLI@v1.0.7
       with:
         inlineScript: |
-          value="$(az group show --name testRG --output json)"
-          value="${value//'%'/'%25'}"
-          value="${value//$'\n'/'%0A'}"
-          value="${value//$'\r'/'%0D'}"
+          echo 'test<<EOF' >> $GITHUB_OUTPUT
+          az group show --name testRG --output json >> $GITHUB_OUTPUT
+          echo 'EOF' >> $GITHUB_OUTPUT
+        
+          #value="$(az group show --name testRG --output json)"
+          #value="${value//'%'/'%25'}"
+          #value="${value//$'\n'/'%0A'}"
+          #value="${value//$'\r'/'%0D'}"
           #echo "::set-output name=test::$value"
           #test="hello"
-          echo "$value"
+          #echo "$value"
           #echo "::set-output name=test::$test"
           #echo "test=$test" >> $GITHUB_ENV
-          echo "test=$value" >> $GITHUB_OUTPUT
+          #echo "test=$value" >> $GITHUB_OUTPUT
           
     - id: step1
       uses: azure/CLI@v1.0.7
