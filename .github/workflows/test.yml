@@ -39,11 +39,6 @@ jobs:
           #echo "test=$test" >> $GITHUB_ENV
           #echo "test=$test" >> $GITHUB_OUTPUT
           
-    - name: Upload rg
-      uses: actions/upload-artifact@v3
-      with:
-        name: rg
-        path: rg.json
     - id: step1
       uses: azure/CLI@v1.0.7
       with:
@@ -63,8 +58,8 @@ jobs:
       name: Print the final result
       shell: bash
       run: |
-        #value=echo ${{needs.job1.outputs.output1}} 
-        echo "RGName- ${{fromJson(needs.job1.outputs.output1).name}}"
+        echo ${{needs.job1.outputs.output1}} 
+        echo "RGName- ${{fromJson(needs.job1.outputs.output1)}}"
         #echo "location- ${{fromJson(needs.job1.outputs.output1).location}}"
         # the following lines are only required for multi line json
         #value="${value//'%'/'%25'}"
