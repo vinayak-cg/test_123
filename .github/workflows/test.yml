@@ -2,10 +2,10 @@ name: check jobs output
 on:
   push:
     branches:
-    - jobOutput11
+    - jobOutput
   pull_request:
     branches:
-    - jobOutput11
+    - jobOutput
 jobs:
   job1:
     runs-on: ubuntu-latest
@@ -28,6 +28,7 @@ jobs:
       uses: azure/CLI@v1.0.7
       with:
         inlineScript: |
+          ls -R
           echo 'test<<EOF' >> $GITHUB_OUTPUT
           az group show --name testRG --output json >> $GITHUB_OUTPUT
           echo 'EOF' >> $GITHUB_OUTPUT
