@@ -59,7 +59,8 @@ jobs:
       uses: actions/download-artifact@v3
       with:
         name: rg
-    - name: Print the final result
+    - id: getParams
+      name: Print the final result
       shell: bash
       run: |
         value=`cat rg.json`
