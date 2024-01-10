@@ -64,8 +64,8 @@ jobs:
       shell: bash
       run: |
         value=echo ${{needs.job1.outputs.output1}} 
-        echo "RGName- ${{fromJson(value).name}}"
-        echo "location- ${{fromJson(value).location}}"
+        echo "RGName- ${{fromJson(value)}}"
+        #echo "location- ${{fromJson(value).location}}"
         # the following lines are only required for multi line json
         #value="${value//'%'/'%25'}"
         #value="${value//$'\n'/'%0A'}"
