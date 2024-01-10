@@ -28,7 +28,7 @@ jobs:
       uses: azure/CLI@v1.0.7
       with:
         inlineScript: |
-          az deployment group what-if --resource-group "testRG" --name "asgdeploy" --template-file "./test/asg.test.bicep" --parameters "./test/asg.test.parameters.json" --output json > rg.json
+          az deployment group what-if --resource-group "testRG" --name "asgdeploy" --template-file "./test/asg.test.bicep" --parameters "./test/asg.test.parameters.json" --output json > azResult.json
     - name: Upload result
       uses: actions/upload-artifact@v3
       with:
