@@ -63,4 +63,13 @@ jobs:
       shell: bash
       run: |
         value=`cat rg.json`
+        # the following lines are only required for multi line json
+        value="${content//'%'/'%25'}"
+        value="${content//$'\n'/'%0A'}"
+        value="${content//$'\r'/'%0D'}"
+        # end of optional handling for multi line json
+        echo "::set-output name=packageJson::$value"
         echo The result is $value
+    - name: echo rgname
+      shell: bash
+      run: echo "${{fromJson(steps.getParams.outputs.packageJson).name}}"
