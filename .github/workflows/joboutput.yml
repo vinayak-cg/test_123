@@ -65,14 +65,14 @@ jobs:
       run: |
         value=`cat rg.json`
         # the following lines are only required for multi line json
-        #value="${value//'%'/'%25'}"
-        #value="${value//$'\n'/'%0A'}"
-        #value="${value//$'\r'/'%0D'}"
+        value="${value//'%'/'%25'}"
+        value="${value//$'\n'/'%0A'}"
+        value="${value//$'\r'/'%0D'}"
         # end of optional handling for multi line json
-        #echo "::set-output name=packageJson::$value"
-        echo 'packageJson<<EOF' >> $GITHUB_OUTPUT
-        $value >> $GITHUB_OUTPUT
-        echo 'EOF' >> $GITHUB_OUTPUT
+        echo "::set-output name=packageJson::$value"
+        #echo 'packageJson<<EOF' >> $GITHUB_OUTPUT
+        #$value >> $GITHUB_OUTPUT
+        #echo 'EOF' >> $GITHUB_OUTPUT
         #echo "packageJson=$value" >> $GITHUB_OUTPUT
         echo The result is $value
     - name: echo rgname
