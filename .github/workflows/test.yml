@@ -2,10 +2,10 @@ name: check jobs output
 on:
   push:
     branches:
-    - jobOutput
+    - jobOutput11
   pull_request:
     branches:
-    - jobOutput
+    - jobOutput11
 jobs:
   job1:
     runs-on: ubuntu-latest
