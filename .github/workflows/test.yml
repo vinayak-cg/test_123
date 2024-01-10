@@ -34,17 +34,7 @@ jobs:
       with:
         name: azResult
         path: azResult.json
-          
-    - id: step1
-      uses: azure/CLI@v1.0.7
-      with:
-        inlineScript: |
-          echo "${{fromjson(steps.step0.outputs.test)}}"
-    - id: step2
-      uses: azure/CLI@v1.0.7
-      with:
-        inlinescript: |
-          echo "test=$(echo "world")" >> $GITHUB_OUTPUT
+
   job2:
     runs-on: ubuntu-latest
     needs: job1
