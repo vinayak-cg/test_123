@@ -28,7 +28,7 @@ jobs:
       uses: azure/CLI@v1.0.7
       with:
         inlineScript: |
-          $(az group show --name testRG > rg.json
+          $(az group show --name testRG) > rg.json
           test="hello"
           echo "$test"
           #echo "::set-output name=test::$test"
