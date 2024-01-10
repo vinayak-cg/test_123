@@ -69,7 +69,8 @@ jobs:
         value="${value//$'\n'/'%0A'}"
         value="${value//$'\r'/'%0D'}"
         # end of optional handling for multi line json
-        echo "::set-output name=packageJson::$value"
+        #echo "::set-output name=packageJson::$value"
+        echo "packageJson=$value" >> $GITHUB_OUTPUT
         echo The result is $value
     - name: echo rgname
       shell: bash
