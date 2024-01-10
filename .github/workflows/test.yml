@@ -9,7 +9,7 @@ on:
 jobs:
   job1:
     runs-on: ubuntu-latest
-    # Map a step output to a job output
+    # Map a step output to a job output 2
     outputs:
       output1: ${{ steps.step0.outputs.test }}
       output2: ${{ steps.step2.outputs.test }}
