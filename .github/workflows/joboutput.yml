@@ -28,12 +28,7 @@ jobs:
       uses: azure/CLI@v1.0.7
       with:
         inlineScript: |
-          #test="$(az group show --name testRG)"
-          eval "$test"
-          #echo "$MULT_LINE_ENV02"
-          env:
-            test: az group show --name testRG
-              
+          test="$(az group show --name testRG|jq -s -c)"
           #test="${CHANGELOG//'%'/'%25'}"
           #test="${CHANGELOG//$'\n'/'%0A'}"
           #test="${CHANGELOG//$'\r'/'%0D'}"
