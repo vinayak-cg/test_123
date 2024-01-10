@@ -32,9 +32,7 @@ jobs:
           eval "$test"
           #echo "$MULT_LINE_ENV02"
           env:
-          MULT_LINE_ENV01: |
-            test: |
-              az group show --name testRG
+          test: az group show --name testRG
               
           #test="${CHANGELOG//'%'/'%25'}"
           #test="${CHANGELOG//$'\n'/'%0A'}"
