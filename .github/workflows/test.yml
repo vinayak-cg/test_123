@@ -64,6 +64,9 @@ jobs:
       shell: bash
       run: |
         echo "RGName- ${{fromJson(steps.getParams.outputs.packageJson).properties.outputs.id.value}}"
-        echo "aceName=${{fromJson(steps.getParams.outputs.packageJson).properties.outputs.id.value}} | sed 's@.*/@@'" >> $GITHUB_OUTPUT
-        echo $aceName
+        echo "aceName=${{fromJson(steps.getParams.outputs.packageJson).properties.outputs.id.value}} | sed 's@.*/@@'" >> $GITHUB_ENV
+    - name: printENV
+      shell: bash
+      run: |
+        echo ${{ env.aceName }}
 
