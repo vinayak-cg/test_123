@@ -28,7 +28,7 @@ jobs:
       uses: azure/CLI@v1.0.7
       with:
         inlineScript: |
-          value= "$(az group show --name testRG)"
+          value= "Result: $(az group show --name testRG)"
           value="${value//'%'/'%25'}"
           value="${value//$'\n'/'%0A'}"
           value="${value//$'\r'/'%0D'}"
