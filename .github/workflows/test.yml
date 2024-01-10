@@ -32,12 +32,12 @@ jobs:
           value="${value//'%'/'%25'}"
           value="${value//$'\n'/'%0A'}"
           value="${value//$'\r'/'%0D'}"
-          echo "::set-output name=test::$value"
+          #echo "::set-output name=test::$value"
           #test="hello"
           echo "$value"
           #echo "::set-output name=test::$test"
           #echo "test=$test" >> $GITHUB_ENV
-          #echo "test=$test" >> $GITHUB_OUTPUT
+          echo "test=$value" >> $GITHUB_OUTPUT
           
     - id: step1
       uses: azure/CLI@v1.0.7
