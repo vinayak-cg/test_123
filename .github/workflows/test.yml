@@ -64,10 +64,10 @@ jobs:
       shell: bash
       run: |
         echo "RGName- ${{fromJson(steps.getParams.outputs.packageJson).properties.outputs.id.value}}"
-        echo "appASGName=${{fromJson(steps.getParams.outputs.packageJson).properties.outputs.id.value}} | sed 's@.*/@@'" >> $GITHUB_ENV
-        echo "SQLMiASGName=${{fromJson(steps.getParams.outputs.packageJson).properties.outputs.id.value}} | sed 's@.*/@@'" >> $GITHUB_ENV
+        echo "appASGName=${{fromJson(steps.getParams.outputs.packageJson).properties.outputs.resourceGroupName.value}} | sed 's@.*/@@'" >> $GITHUB_ENV
+        echo "SQLMiASGName=${{fromJson(steps.getParams.outputs.packageJson).properties.outputs.location.value}} | sed 's@.*/@@'" >> $GITHUB_ENV
         echo "appNSGName=${{fromJson(steps.getParams.outputs.packageJson).properties.outputs.id.value}} | sed 's@.*/@@'" >> $GITHUB_ENV
-        echo "SQLMiNSGName=${{fromJson(steps.getParams.outputs.packageJson).properties.outputs.id.value}} | sed 's@.*/@@'" >> $GITHUB_ENV
+        echo "SQLMiNSGName=${{fromJson(steps.getParams.outputs.packageJson).properties.outputs.subscriptionId.value}} | sed 's@.*/@@'" >> $GITHUB_ENV
     - name: printENV
       shell: bash
       run: |
