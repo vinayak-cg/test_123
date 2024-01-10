@@ -63,6 +63,6 @@ jobs:
     - name: echo rgname
       shell: bash
       run: |
-        echo "RGName- ${{fromJson(steps.getParams.outputs.packageJson).name}}"
-        echo "location- ${{fromJson(steps.getParams.outputs.packageJson).location}}"
+        echo "RGName- ${{fromJson(steps.getParams.outputs.packageJson).properties.outputs.id.value}}"
+        echo "location- ${{fromJson(steps.getParams.outputs.packageJson).location.outputs.subscriptionId.value}}"
     
