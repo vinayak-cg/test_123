@@ -41,8 +41,10 @@ module appVMFEASG '../modules/asg.bicep' = {
     location: location    
   }
 }
-output name string = appVMFEASG.outputs.ASG.name
+
+//output obj object = appVMFEASG.outputs.ASG
+output resourceGroupName string = appVMFEASG.outputs.ASG.resourceGroupName
 output location string = appVMFEASG.outputs.ASG.location
-output id string = appVMFEASG.outputs.ASG.id
-output type string = appVMFEASG.outputs.ASG.type
+output id string = appVMFEASG.outputs.ASG.resourceId
+output subscriptionId string = appVMFEASG.outputs.ASG.subscriptionId
 
