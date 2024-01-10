@@ -28,17 +28,12 @@ jobs:
       uses: azure/CLI@v1.0.7
       with:
         inlineScript: |
-          az deployment group what-if --resource-group "testRG" --name "asgdeploy" --template-file "./test/asg.test.bicep" --parameters "./test/asg.test.parameters.json"
-          #value="$(az group show --name testRG --output json)"
-          #value="${value//'%'/'%25'}"
-          #value="${value//$'\n'/'%0A'}"
-          #value="${value//$'\r'/'%0D'}"
-          #echo "::set-output name=test::$value"
-          #test="hello"
-          #echo "$value"
-          #echo "::set-output name=test::$test"
-          #echo "test=$test" >> $GITHUB_ENV
-          #echo "test=$value" >> $GITHUB_OUTPUT
+          az deployment group what-if --resource-group "testRG" --name "asgdeploy" --template-file "./test/asg.test.bicep" --parameters "./test/asg.test.parameters.json" --output json > rg.json
+    - name: Upload result
+      uses: actions/upload-artifact@v3
+      with:
+        name: azResult
+        path: azResult.json
           
     - id: step1
       uses: azure/CLI@v1.0.7
@@ -54,23 +49,30 @@ jobs:
     runs-on: ubuntu-latest
     needs: job1
     steps:
-    - run: echo ${{needs.job1.outputs.output1}}  
+    - run: echo ${{needs.job1.outputs.output1}} 
+    - name: Download math result for job 2
+      uses: actions/download-artifact@v3
+      with:
+        name: azResult
     - id: getParams
       name: Print the final result
       shell: bash
       run: |
-        echo ${{needs.job1.outputs.output1}} 
-        echo "RGName- ${{fromJson(needs.job1.outputs.output1)}}"
-        #echo "location- ${{fromJson(needs.job1.outputs.output1).location}}"
+        value=`cat azResult.json`
         # the following lines are only required for multi line json
-        #value="${value//'%'/'%25'}"
-        #value="${value//$'\n'/'%0A'}"
-        #value="${value//$'\r'/'%0D'}"
+        value="${value//'%'/'%25'}"
+        value="${value//$'\n'/'%0A'}"
+        value="${value//$'\r'/'%0D'}"
         # end of optional handling for multi line json
-        #echo "::set-output name=packageJson::$value"
+        echo "::set-output name=packageJson::$value"
         #echo 'packageJson<<EOF' >> $GITHUB_OUTPUT
         #$value >> $GITHUB_OUTPUT
         #echo 'EOF' >> $GITHUB_OUTPUT
         #echo "packageJson=$value" >> $GITHUB_OUTPUT
-        #echo The result is $value
+        echo The result is $value
+    - name: echo rgname
+      shell: bash
+      run: |
+        echo "RGName- ${{fromJson(steps.getParams.outputs.packageJson).name}}"
+        echo "location- ${{fromJson(steps.getParams.outputs.packageJson).location}}"
     
