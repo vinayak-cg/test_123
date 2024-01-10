@@ -36,7 +36,7 @@ jobs:
           echo "test=$test" >> $GITHUB_OUTPUT
           
     - name: Upload rg
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: rg
         path: rg.json
