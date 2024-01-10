@@ -39,7 +39,8 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         name: rg
-        path: rg.json      
+        path: rg.json
+        compression-level: 0
     - id: step1
       uses: azure/CLI@v1.0.7
       with:
