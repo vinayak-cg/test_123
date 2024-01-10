@@ -64,5 +64,6 @@ jobs:
       shell: bash
       run: |
         echo "RGName- ${{fromJson(steps.getParams.outputs.packageJson).properties.outputs.id.value}}"
-        echo "${{fromJson(steps.getParams.outputs.packageJson).properties.outputs.id.value}}" | sed 's@.*/@@'
+        aceName= "${{fromJson(steps.getParams.outputs.packageJson).properties.outputs.id.value}}" | sed 's@.*/@@'
+        echo $aceName
 
