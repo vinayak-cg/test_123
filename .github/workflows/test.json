@@ -54,7 +54,7 @@ jobs:
       with:
         inlinescript: |
           echo "test=$(echo "world")" >> $GITHUB_OUTPUT
-  read:
+  job2:
     runs-on: ubuntu-latest
     needs: job1
     steps:
